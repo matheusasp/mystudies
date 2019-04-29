@@ -1,0 +1,111 @@
+CREATE TABLE FUNCIONARIO( 
+
+cod_fun int, --virar pk 
+
+nome_fun varchar(50), 
+
+sexo_fun char(1), 
+
+rg_fun varchar(12), 
+
+sal_fun decimal(10,2) 
+
+) 
+
+  
+
+CREATE TABLE EMAIL_FUNCIONARIO( 
+
+cod_fun int, --virar fk 
+
+id_email tinyint, --virar pk 
+
+end_email varchar(50) 
+
+) 
+
+  
+
+CREATE TABLE TEL_FUNCIONARIO( 
+
+cod_fun int, -- vai virar fk 
+
+id_tel int, --vai virar pk 
+
+ddd_fun char(4), 
+
+num_tel_fun varchar(10), 
+
+tipo_tel varchar(15) 
+
+) 
+
+  
+
+CREATE TABLE CLIENTE( 
+
+cod_cli int, --virar pk 
+
+nome_cli int, 
+
+sexo_cli char(1) 
+
+) 
+
+  
+
+CREATE TABLE EMAIL_CLIENTE( 
+
+cod_cli int, --virar fk 
+
+id_email_cli tinyint, --virar pk 
+
+end_email_cli varchar(50) 
+
+) 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+CREATE TABLE PRODUTO( 
+
+cod_prod int, --virar pk 
+
+nome_prod varchar(100), 
+
+tam_prod char(1), 
+
+qtd_estoque_prod int, 
+
+preco_prod decimal(10,2), 
+
+  
+
+) 
+
+  
+
+CREATE TABLE PEDIDO( 
+
+num_ped int, --virar pk 
+
+cod_cli int, -- virar fk 
+
+cod_fun int, --virar fk 
+
+data_ped date, 
+
+val_ped decimal(10,2) 
+
+) 
