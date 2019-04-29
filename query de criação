@@ -92,15 +92,15 @@ tipo_tel varchar(15) not null
 
 CREATE TABLE PRODUTO( 
 
-cod_prod int, --virar pk 
+cod_prod int not null, --virar pk 
 
-nome_prod varchar(100), 
+nome_prod varchar(100) not null, 
 
-tam_prod char(1), 
+tam_prod char(1) not null, 
 
-qtd_estoque_prod int, 
+qtd_estoque_prod int not null, 
 
-preco_prod decimal(10,2), 
+preco_prod decimal(10,2) not null, 
 
   
 
@@ -110,14 +110,14 @@ preco_prod decimal(10,2),
 
 CREATE TABLE PEDIDO( 
 
-num_ped int, --virar pk 
+num_ped int not null, --virar pk 
 
-cod_cli int, -- virar fk 
+cod_cli int not null, -- virar fk 
 
-cod_fun int, --virar fk 
+cod_fun int not null, --virar fk 
 
-data_ped date, 
+data_ped date not null, 
 
-val_ped decimal(10,2) 
+val_ped decimal(10,2) not null
 
 ) 
