@@ -64,7 +64,19 @@ end_email_cli varchar(50) not null
 
 ) 
 
-  
+CREATE TABLE TEL_CLIENTE( 
+
+cod_cli int not null, -- vai virar fk 
+
+id_tel int not null, --vai virar pk 
+
+ddd_cli char(4) not null, 
+
+num_tel_cli varchar(10) not null, 
+
+tipo_tel varchar(15) not null
+
+)   
 
   
 
