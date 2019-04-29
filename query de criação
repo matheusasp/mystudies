@@ -1,14 +1,14 @@
 CREATE TABLE FUNCIONARIO( 
 
-cod_fun int, --virar pk 
+cod_fun int not null, --virar pk 
 
-nome_fun varchar(50), 
+nome_fun varchar(50) not null, 
 
-sexo_fun char(1), 
+sexo_fun char(1) not null, 
 
-rg_fun varchar(12), 
+rg_fun varchar(12) not null, 
 
-sal_fun decimal(10,2) 
+sal_fun decimal(10,2) not null 
 
 ) 
 
@@ -16,11 +16,11 @@ sal_fun decimal(10,2)
 
 CREATE TABLE EMAIL_FUNCIONARIO( 
 
-cod_fun int, --virar fk 
+cod_fun int not null, --virar fk 
 
-id_email tinyint, --virar pk 
+id_email tinyint not null, --virar pk 
 
-end_email varchar(50) 
+end_email varchar(50) not null 
 
 ) 
 
@@ -28,15 +28,15 @@ end_email varchar(50)
 
 CREATE TABLE TEL_FUNCIONARIO( 
 
-cod_fun int, -- vai virar fk 
+cod_fun int not null, -- vai virar fk 
 
-id_tel int, --vai virar pk 
+id_tel int not null, --vai virar pk 
 
-ddd_fun char(4), 
+ddd_fun char(4) not null, 
 
-num_tel_fun varchar(10), 
+num_tel_fun varchar(10) not null, 
 
-tipo_tel varchar(15) 
+tipo_tel varchar(15) not null
 
 ) 
 
@@ -44,11 +44,11 @@ tipo_tel varchar(15)
 
 CREATE TABLE CLIENTE( 
 
-cod_cli int, --virar pk 
+cod_cli int not null, --virar pk 
 
-nome_cli int, 
+nome_cli varchar(50) not null, 
 
-sexo_cli char(1) 
+sexo_cli char(1) not null
 
 ) 
 
@@ -56,11 +56,11 @@ sexo_cli char(1)
 
 CREATE TABLE EMAIL_CLIENTE( 
 
-cod_cli int, --virar fk 
+cod_cli int not null, --virar fk 
 
-id_email_cli tinyint, --virar pk 
+id_email_cli tinyint not null, --virar pk 
 
-end_email_cli varchar(50) 
+end_email_cli varchar(50) not null
 
 ) 
 
