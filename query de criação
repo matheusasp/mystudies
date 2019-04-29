@@ -24,10 +24,16 @@ id_email_fun tinyint identity not null, --virar pk
 end_email varchar(50) not null 
 
 ) 
+--PK
 ALTER TABLE EMAIL_FUNCIONARIO
 ADD CONSTRAINT PK_EMAIL_FUN
 PRIMARY KEY (id_email_fun)
-  
+
+--FK
+ALTER TABLE EMAIL_FUNCIONARIO
+ADD CONSTRAINT FK_COD_FUN
+FOREIGN KEY (cod_fun)
+REFERENCES FUNCIONARIO (cod_fun)
 
 CREATE TABLE TEL_FUNCIONARIO( 
 
@@ -42,10 +48,16 @@ num_tel_fun varchar(10) not null,
 tipo_tel varchar(15) not null
 
 ) 
+--PK
 ALTER TABLE TEL_FUNCIONARIO
 ADD CONSTRAINT PK_TEL_FUN
 PRIMARY KEY (id_tel_fun)
-  
+
+--FK
+ALTER TABLE TEL_FUNCIONARIO
+ADD CONSTRAINT FK_TEL_FUN
+FOREIGN KEY (cod_fun)
+REFERENCES FUNCIONARIO (cod_fun)
 
 CREATE TABLE CLIENTE( 
 
@@ -56,11 +68,11 @@ nome_cli varchar(50) not null,
 sexo_cli char(1) not null
 
 ) 
+--PK
 ALTER TABLE CLIENTE
 ADD CONSTRAINT PK_CLI
 PRIMARY KEY (cod_cli)
   
-
 CREATE TABLE EMAIL_CLIENTE( 
 
 cod_cli int not null, --virar fk 
@@ -70,9 +82,16 @@ id_email_cli tinyint identity not null, --virar pk
 end_email_cli varchar(50) not null
 
 ) 
+--PK
 ALTER TABLE EMAIL_CLIENTE
 ADD CONSTRAINT PK_EMAIL_CLI
 PRIMARY KEY (id_email_cli)
+
+--FK
+ALTER TABLE EMAIL_CLIENTE
+ADD CONSTRAINT FK_EMAIL_CLI
+FOREIGN KEY (cod_cli)
+REFERENCES CLIENTE (cod_cli)
 
 CREATE TABLE TEL_CLIENTE( 
 
@@ -87,10 +106,12 @@ num_tel_cli varchar(10) not null,
 tipo_tel varchar(15) not null
 
 )   
-
+--PK
 ALTER TABLE TEL_CLIENTE
 ADD CONSTRAINT PK_TEL_CLI
 PRIMARY KEY (id_tel_cli) 
+
+--FK
 
   
 
