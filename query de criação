@@ -6,7 +6,7 @@ nome_fun varchar(50) not null,
 
 sexo_fun char(1) not null, 
 
-rg_fun varchar(12) not null, 
+rg_fun varchar(9) not null, 
 
 sal_fun decimal(10,2) not null 
 
@@ -65,7 +65,9 @@ cod_cli int identity not null, --virar pk
 
 nome_cli varchar(50) not null, 
 
-sexo_cli char(1) not null
+sexo_cli char(1) not null,
+
+rg_cli varchar(9) not null
 
 ) 
 --PK
@@ -97,14 +99,13 @@ CREATE TABLE TEL_CLIENTE(
 
 cod_cli int not null, -- vai virar fk 
 
-id_tel_cli identity int not null, --vai virar pk 
+id_tel_cli int identity not null, --vai virar pk 
 
 ddd_cli char(4) not null, 
 
 num_tel_cli varchar(10) not null, 
 
 tipo_tel varchar(15) not null
-
 )   
 --PK
 ALTER TABLE TEL_CLIENTE
@@ -112,6 +113,12 @@ ADD CONSTRAINT PK_TEL_CLI
 PRIMARY KEY (id_tel_cli) 
 
 --FK
+
+ALTER TABLE TEL_CLIENTE
+ADD CONSTRAINT FK_COD_TEL_CLI
+FOREIGN KEY (cod_cli)
+REFERENCES CLIENTE (cod_cli)
+
 
   
 
@@ -134,13 +141,14 @@ tam_prod char(1) not null,
 qtd_estoque_prod int not null, 
 
 preco_prod decimal(10,2) not null, 
-
-  
-
 ) 
+--PK
+
+ALTER TABLE PRODUTO
+ADD CONSTRAINT PK_COD_PROD
+PRIMARY KEY (cod_prod)
 
   
-
 CREATE TABLE PEDIDO( 
 
 num_ped int identity not null, --virar pk 
@@ -154,3 +162,16 @@ data_ped date not null,
 val_ped decimal(10,2) not null
 
 ) 
+ALTER TABLE PEDIDO
+ADD CONSTRAINT PK_COD_PEDIDO
+PRIMARY KEY (num_ped)
+
+ALTER TABLE PEDIDO
+ADD CONSTRAINT FK_PED_COD_CLI
+FOREIGN KEY (cod_cli)
+REFERENCES CLIENTE (cod_cli)
+
+ALTER TABLE PEDIDO
+ADD CONSTRAINT FK_PED_COD_FUN
+FOREIGN KEY (cod_fun)
+REFERENCES FUNCIONARIO (cod_fun)
