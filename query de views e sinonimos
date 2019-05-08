@@ -1,0 +1,22 @@
+--View funcionario, email e telefone
+
+CREATE VIEW VW_FUN_EMAIL_TEL AS
+SELECT C.cod_fun 'Código do Funcionário',
+       C.nome_fun 'Nome do Funcionário',
+       C.rg_fun   'RG',
+       C.sexo_fun 'Sexo',
+       C.sal_fun  'Salário',
+       E.end_email 'E-mail',
+       T.num_tel_fun 'Telefone'
+FROM FUNCIONARIO C JOIN EMAIL_FUNCIONARIO E
+ON C.cod_fun = E.cod_fun JOIN TEL_FUNCIONARIO T
+
+
+-- Sinonimo view anterior
+
+CREATE SYNONYM DADOS_FUNCIONARIO
+FOR VW_FUN_EMAIL_TEL
+
+
+
+       
