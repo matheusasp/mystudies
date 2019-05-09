@@ -1,0 +1,23 @@
+INSERT INTO CLIENTE (nome_cli, sexo_cli, rg_cli) VALUES ('SILVA', 'M', '005000000')
+
+INSERT INTO EMAIL_CLIENTE(cod_cli, end_email_cli) VALUES (1, 'silva@gmail.com')
+
+INSERT INTO TEL_CLIENTE (cod_cli, ddd_cli, num_tel_cli, tipo_tel) VALUES (1, '11', '9999999999', 'Celular')
+
+INSERT INTO PEDIDO (cod_cli, cod_fun, data_ped, val_ped) VALUES (1, 1, '07/05/2019', 1000)
+--SUBCONSULTA
+SELECT * FROM PEDIDO
+WHERE cod_cli = (SELECT cod_cli FROM CLIENTE WHERE nome_cli LIKE 'SILVA')
+
+
+
+-- JUNÇÃO
+
+SELECT C.NOME_CLI 'Cliente',
+	   C.SEXO_CLI 'SEXO',
+	   C.RG_CLI 'RG',
+	   E.END_EMAIL_CLI 'E-mail',
+	   T.NUM_TEL_CLI 'Telefone'
+FROM Cliente C JOIN EMAIL_CLIENTE E
+ON	 C.cod_cli = E.cod_cli JOIN TEL_CLIENTE T
+ON   T.cod_cli = C.cod_cli
