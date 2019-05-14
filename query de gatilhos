@@ -1,0 +1,8 @@
+--CRIAÇÃO DE TABELA PARA SER USADA DE EXEMPLO DO GATILHO
+
+SELECT * INTO PRODUTO_3K
+FROM PRODUTO
+WHERE preco_prod > 3000
+
+--Este comando recria a tabela produto com o nome PRODUTO_3K e apenas os produtos cujos preços são maiores que 3 mil
+
